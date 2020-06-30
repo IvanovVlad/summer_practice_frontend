@@ -1,3 +1,12 @@
+@mixin border-basic {
+    border-bottom: 1px solid #D8DCE3;
+}
+
+@font-face {
+    font-family: "Roboto";
+    src: url(/src/resources/fonts/Roboto-Regular.ttf);
+}
+
 body {
     margin: 0;
 }
@@ -60,5 +69,137 @@ body {
 
     .option--main {
         height: 150px;
+    }
+}
+
+.info-tile {
+
+    width: 560px;
+    padding-bottom: 20px;
+    margin: 45px;
+    background: #FFFFFF;
+    border-radius: 10px;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+
+    .info-tile__title {
+        display: flex;
+        align-items: center;
+        height: 60px;
+        @include border-basic();
+
+    }
+
+    .info-tile__list {
+        margin: 5px 25px;
+    }
+
+    .info-tile__title--with-button {
+        justify-content: space-between;
+    }
+
+    .tile-title {
+        margin: 20px 25px;
+    }
+
+    .tile-title--basic {
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 18px;
+        line-height: 21px;
+    }
+}
+
+.button {
+    width: 150px;
+    height: 30px;
+
+    background: #E4E4E4;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 19px;
+
+    color: #999999;
+
+    border: none;
+
+}
+
+.button:hover {
+    background: #8888;
+    cursor: pointer;
+}
+
+.text {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 27px;
+}
+
+.list {
+    .item {
+        display: flex;
+        align-items: center;
+        position: relative;
+        padding: 0 0 0 30px;
+    }
+
+    .bulletpoint {
+        content: "";
+        position: absolute;
+        left: 0;
+        width: 15px;
+        height: 15px;
+        border-radius: 50px;
+    }
+
+    .bulletpoint--pink {
+        background-color: #FF7D84;
+    }
+
+    .bulletpoint--green {
+        background-color: #73E24D;
+    }
+}
+
+.info-tile__table {
+    margin: 10px 27px;
+    display: grid;
+    grid-gap: 5px;
+
+    .line-text {
+        padding-left: 10px;
+        display: grid;
+        grid-auto-flow: column;
+        grid-template: 1fr / 35% auto;
+    }
+
+    .line-text--with-border {
+        @include border-basic();
+    }
+
+    .name {
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 18px;
+        line-height: 21px;
+
+        color: #0A5499;
+    }
+
+    .value {
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 18px;
+        line-height: 21px;
     }
 }

@@ -215,4 +215,31 @@ h1 {
 .line-text--with-border {
   border-bottom: 1px solid #D8DCE3;
 }
+
+.flow-elements {
+  position: relative;
+}
+
+.flow-elements__planets {
+  height: 438px;
+  width: 438px;
+  position: absolute;
+  background-image: url("/src/resources/space objects/023-astronomy 1.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  border-top-right-radius: 50px;
+  top: 0;
+  left: 66.3%;
+}
+
+.flow-elements__spaceship {
+  height: 410px;
+  width: 410px;
+  position: absolute;
+  background-image: url("/src/resources/space objects/025-rocket 3.svg");
+  background-size: contain;
+  background-repeat: no-repeat;
+  top: 390px;
+  left: 62%;
+}
 /*# sourceMappingURL=style.css.map */

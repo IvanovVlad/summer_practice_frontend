@@ -1,3 +1,9 @@
+$green: #73E24D;
+$brown: #E69F54;
+$pink: #FF7D84;
+$light-blue: #5A95F2;
+$dark-blue: #0A5499;
+
 @font-face {
     font-family: "Roboto";
     src: url(/src/resources/fonts/Roboto-Regular.ttf);
@@ -5,6 +11,10 @@
 
 body {
     margin: 0;
+}
+
+h1 {
+    display: none;
 }
 
 .wrapper {
@@ -125,9 +135,20 @@ body {
         font-weight: bold;
     }
 
-    &--bold-blue {
-        font-weight: bold;
-        color: #0A5499;
+    &--dark-blue {
+        color: $dark-blue;
+    }
+    &--light-blue {
+        color: $light-blue;
+    }
+    &--pink {
+        color: $pink;
+    }
+    &--brown {
+        color: $brown;
+    }
+    &--green {
+        color: $green;
     }
 }
 
@@ -147,11 +168,11 @@ body {
     border-radius: 50px;
 
     &--pink {
-        background-color: #FF7D84;
+        background-color: $pink;
     }
 
     &--green {
-        background-color: #73E24D;
+        background-color: $green;
     }
 }
 

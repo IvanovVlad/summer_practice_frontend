@@ -7,6 +7,10 @@ body {
   margin: 0;
 }
 
+h1 {
+  display: none;
+}
+
 .wrapper {
   height: 100vh;
   width: 100vw;
@@ -143,9 +147,24 @@ body {
   font-weight: bold;
 }
 
-.text--bold-blue {
-  font-weight: bold;
+.text--dark-blue {
   color: #0A5499;
+}
+
+.text--light-blue {
+  color: #5A95F2;
+}
+
+.text--pink {
+  color: #FF7D84;
+}
+
+.text--brown {
+  color: #E69F54;
+}
+
+.text--green {
+  color: #73E24D;
 }
 
 .list__item {

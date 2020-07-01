@@ -58,6 +58,11 @@ body {
 .option {
     height: 110px;
 
+    &__image:hover {
+        cursor: pointer;
+        background-color: red;
+    }
+
     &--main {
         height: 150px;
     }

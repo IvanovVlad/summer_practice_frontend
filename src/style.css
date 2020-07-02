@@ -83,6 +83,7 @@ h1 {
 
 .option__image:hover {
   cursor: pointer;
+  opacity: 1 !important;
 }
 
 .option--main {

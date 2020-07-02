@@ -1,6 +1,10 @@
 let currentIndex = 0;
 let menus = [];
 const options = document.querySelectorAll('.option');
+
+const optionImages = [];
+options.forEach(option => optionImages.push(option.querySelector('img')));
+
 const cardBody = document.querySelector('.card__body');
 
 function showMenu(id) {
@@ -15,8 +19,22 @@ function assignClicks() {
             option.addEventListener('click', () => {
                 if (currentIndex !== index) {
                     showMenu(index);
+                    setOpacity(index);
                 }
             });
+        });
+}
+
+function setOpacity(id) {
+    const opacity = { active: 1, inactive: 0.1 };
+
+    optionImages.forEach(
+        (img, index) => {
+            if (id !== index) {
+                img.style.opacity = opacity.inactive;
+            } else {
+                img.style.opacity = opacity.active;
+            }
         });
 }
 
@@ -27,6 +45,7 @@ function start() {
 
     showMenu(0);
     assignClicks();
+    setOpacity(0);
 }
 
 start();

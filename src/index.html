@@ -12,101 +12,118 @@
     <h1>Space Oddity</h1>
     <div class="wrapper">
         <div class="card-wrapper">
-            <div class="flow-elements">
-                <div class="flow-elements__planets"></div>
-                <div class="flow-elements__spaceship"></div>
-            </div>
+
             <div class="card">
                 <div class="card__sidebar card__card-sidebar">
                     <div class="card__option-holder">
-                        <div class="option option--main">
+                        <div class="option option--main" id="option-main">
                             <img src="resources/sidebar icons/007-earth 1.svg" class="option__image"></img>
                         </div>
-                        <div class="option">
+                        <div class="option" id="option-rocket">
                             <img src="resources/sidebar icons/025-rocket 1.svg" class="option__image"></object>
                         </div>
-                        <div class="option">
+                        <div class="option" id="option-team">
                             <img src="resources/sidebar icons/003-aqualung 1.svg" class="option__image"></object>
                         </div>
-                        <div class="option">
+                        <div class="option" id="option-temperature">
                             <img src="resources/sidebar icons/034-thermometer 1.svg" class="option__image"></object>
                         </div>
                     </div>
                 </div>
                 <div class="card__body">
-                    <div class="info-tile card__info-tile">
-                        <div class="info-tile__title info-tile__title--with-button">
-                            <span class="text text--bold info-tile__title-text">Статус</span><button
-                                class="button info-tile__title-text">Поехали!</button>
+                    <div id="home">
+                        <div class="flow-elements">
+                            <div class="flow-elements__planets"></div>
+                            <div class="flow-elements__spaceship"></div>
                         </div>
-                        <div class="info-tile__body">
-                            <div class="list info-tile__list">
-                                <div class="list__item">
-                                    <span class="bulletpoint bulletpoint--pink"></span>
-                                    <div class="text">Ракета выбрана</div>
+                        <div class="info-tile card__info-tile">
+                            <div class="info-tile__title info-tile__title--with-button">
+                                <span class="text text--bold info-tile__title-text">Статус</span><button
+                                    class="button info-tile__title-text">Поехали!</button>
+                            </div>
+                            <div class="info-tile__body">
+                                <div class="list info-tile__list">
+                                    <div class="list__item">
+                                        <span class="bulletpoint bulletpoint--pink"></span>
+                                        <div class="text">Ракета выбрана</div>
+                                    </div>
+                                    <div class="list__item">
+                                        <span class="bulletpoint bulletpoint--pink"></span>
+                                        <div class="text">Команда собрана</div>
+                                    </div>
+                                    <div class="list__item">
+                                        <span class="bulletpoint bulletpoint--green"></span>
+                                        <div class="text">Погода - ок</div>
+                                    </div>
                                 </div>
-                                <div class="list__item">
-                                    <span class="bulletpoint bulletpoint--pink"></span>
-                                    <div class="text">Команда собрана</div>
+                            </div>
+                        </div>
+                        <div class="info-tile card__info-tile">
+                            <div class="info-tile__title">
+                                <span class="text text--bold info-tile__title-text">Погодные условия</span>
+                            </div>
+                            <div class="info-tile__body">
+                                <div class="info-tile__content">
+                                    <div class="line-text line-text--with-border"><span
+                                            class="text text--bold text--dark-blue">Локация</span><span
+                                            class="text">Космодром
+                                            Северный</span></div>
+                                    <div class="line-text line-text--with-border"><span
+                                            class="text text--bold text--dark-blue">Температура</span><span
+                                            class="text">+15
+                                            С</span>
+                                    </div>
+                                    <div class="line-text line-text--with-border"><span
+                                            class="text text--bold text--dark-blue">Влажность</span><span
+                                            class="text">30%</span></div>
+                                    <div class="line-text"><span
+                                            class="text text--bold text--dark-blue">Ветер</span><span class="text">5
+                                            м\с, СЗ</span></div>
                                 </div>
-                                <div class="list__item">
-                                    <span class="bulletpoint bulletpoint--green"></span>
-                                    <div class="text">Погода - ок</div>
+                            </div>
+                        </div>
+                        <div class="info-tile card__info-tile">
+                            <div class="info-tile__title">
+                                <span class="text text--bold info-tile__title-text">Экипаж</span>
+                            </div>
+                            <div class="info-tile__body">
+                                <div class="info-tile__content">
+                                    <div class="line-text line-text--with-border"><span
+                                            class="text text--bold text--pink">Капитан</span><span
+                                            class="text">Константин
+                                            Константинопольский</span></div>
+                                    <div class="line-text line-text--with-border"><span
+                                            class="text text--bold text--brown">Борт-инженер</span><span
+                                            class="text">Иван
+                                            Иванов</span>
+                                    </div>
+                                    <div class="line-text line-text--with-border"><span
+                                            class="text text--bold text--bold text--green">Врач</span><span
+                                            class="text">Петр
+                                            Петров</span>
+                                    </div>
+                                    <div class="line-text"><span
+                                            class="text text--bold text--light-blue">Космодесантник</span><span
+                                            class="text">Анастасия
+                                            Преображенская</span></div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="info-tile card__info-tile">
-                        <div class="info-tile__title">
-                            <span class="text text--bold info-tile__title-text">Погодные условия</span>
-                        </div>
-                        <div class="info-tile__body">
-                            <div class="info-tile__content">
-                                <div class="line-text line-text--with-border"><span
-                                        class="text text--bold text--dark-blue">Локация</span><span
-                                        class="text">Космодром
-                                        Северный</span></div>
-                                <div class="line-text line-text--with-border"><span
-                                        class="text text--bold text--dark-blue">Температура</span><span class="text">+15
-                                        С</span>
-                                </div>
-                                <div class="line-text line-text--with-border"><span
-                                        class="text text--bold text--dark-blue">Влажность</span><span
-                                        class="text">30%</span></div>
-                                <div class="line-text"><span class="text text--bold text--dark-blue">Ветер</span><span
-                                        class="text">5 м\с, СЗ</span></div>
-                            </div>
-                        </div>
+                    <div id="rocket">
+                        <div class="card__title">Выбор корабля</div>
                     </div>
-                    <div class="info-tile card__info-tile">
-                        <div class="info-tile__title">
-                            <span class="text text--bold info-tile__title-text">Экипаж</span>
-                        </div>
-                        <div class="info-tile__body">
-                            <div class="info-tile__content">
-                                <div class="line-text line-text--with-border"><span
-                                        class="text text--bold text--pink">Капитан</span><span class="text">Константин
-                                        Константинопольский</span></div>
-                                <div class="line-text line-text--with-border"><span
-                                        class="text text--bold text--brown">Борт-инженер</span><span class="text">Иван
-                                        Иванов</span>
-                                </div>
-                                <div class="line-text line-text--with-border"><span
-                                        class="text text--bold text--bold text--green">Врач</span><span
-                                        class="text">Петр
-                                        Петров</span>
-                                </div>
-                                <div class="line-text"><span
-                                        class="text text--bold text--light-blue">Космодесантник</span><span
-                                        class="text">Анастасия
-                                        Преображенская</span></div>
-                            </div>
-                        </div>
+                    <div id="team-compilation">
+                        <div class="card__title">Сбор команды</div>
+                    </div>
+                    <div id="weather">
+                        <div class="card__title">Проверка погодных условий</div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <script src="/src/js/main.js"></script>
 </body>
 
 </html>

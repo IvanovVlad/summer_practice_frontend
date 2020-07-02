@@ -63,6 +63,16 @@ h1 {
         padding-bottom: 20px;
         margin: 45px;
     }
+
+    &__title {
+        margin: 52px 0 0 63px;
+
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 48px;
+        line-height: 56px;
+    }
 }
 
 .option {
@@ -70,7 +80,6 @@ h1 {
 
     &__image:hover {
         cursor: pointer;
-        background-color: red;
     }
 
     &--main {
@@ -209,7 +218,7 @@ h1 {
         background-repeat: no-repeat;
         border-top-right-radius: 50px;
         top: 0;
-        left: 66.3%;
+        left: 733px;
     }
 
     &__spaceship {
@@ -220,6 +229,6 @@ h1 {
         background-size: contain;
         background-repeat: no-repeat;
         top: 390px;
-        left: 62%;
+        left: 700px;
     }
 }

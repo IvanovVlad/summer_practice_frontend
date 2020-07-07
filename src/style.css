@@ -123,6 +123,24 @@ h1 {
   margin: 5px 25px;
 }
 
+.info-tile__content {
+  margin: 10px 27px;
+  display: -ms-grid;
+  display: grid;
+  grid-gap: 5px;
+}
+
+.info-tile__content--with-picture {
+  grid-auto-flow: column;
+  -ms-grid-columns: 20% auto;
+      grid-template-columns: 20% auto;
+}
+
+.info-tile__image {
+  width: 90px;
+  height: 90px;
+}
+
 .button {
   width: 150px;
   height: 30px;
@@ -202,13 +220,6 @@ h1 {
 
 .bulletpoint--green {
   background-color: #73E24D;
-}
-
-.info-tile__content {
-  margin: 10px 27px;
-  display: -ms-grid;
-  display: grid;
-  grid-gap: 5px;
 }
 
 .line-text {

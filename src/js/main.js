@@ -42,10 +42,13 @@ function start() {
     for (let i = 0; i < cardBody.children.length; i++) {
         menus.push(cardBody.children[i].innerHTML);
     }
-
-    showMenu(0);
     assignClicks();
-    setOpacity(0);
+}
+
+function openMenu(id = 0) {
+    showMenu(id);
+    setOpacity(id);
 }
 
 start();
+openMenu(1);

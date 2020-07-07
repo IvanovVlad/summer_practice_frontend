@@ -112,6 +112,21 @@ h1 {
     &__list {
         margin: 5px 25px;
     }
+
+    &__content {
+        margin: 10px 27px;
+        display: grid;
+        grid-gap: 5px;
+        &--with-picture {
+            grid-auto-flow: column;
+            grid-template-columns: 20% auto;
+        }
+    }
+
+    &__image{
+        width: 90px;
+        height: 90px;
+    }
 }
 
 .button {
@@ -188,12 +203,6 @@ h1 {
     &--green {
         background-color: $green;
     }
-}
-
-.info-tile__content {
-    margin: 10px 27px;
-    display: grid;
-    grid-gap: 5px;
 }
 
 .line-text {

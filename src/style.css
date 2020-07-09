@@ -328,6 +328,12 @@ h1 {
   display: grid;
   grid-auto-flow: column;
   -ms-grid-rows: 1fr;
+  -ms-grid-columns: 35% auto;
+      grid-template: 1fr / 35% auto;
+}
+
+.line-text--option-padding {
+  -ms-grid-rows: 1fr;
   -ms-grid-columns: 100px auto;
       grid-template: 1fr / 100px auto;
 }

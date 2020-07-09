@@ -258,8 +258,11 @@ h1 {
     padding-left: 10px;
     display: grid;
     grid-auto-flow: column;
-    grid-template: 1fr / 100px auto;
+    grid-template: 1fr / 35% auto;
 
+    &--option-padding {
+        grid-template: 1fr / 100px auto;
+    }
     &--with-border {
         border-bottom: 1px solid #d8dce3;
     }

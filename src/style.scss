@@ -294,3 +294,18 @@ h1 {
         left: 700px;
     }
 }
+
+.person-selected {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 45px;
+}
+
+.person-container {
+    margin: 45px;
+}
+
+.icon {
+    width: 20px;
+    padding-left: 10px;
+}

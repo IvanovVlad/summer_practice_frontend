@@ -58,7 +58,7 @@ function openMenu(id = 0) {
 }
 
 start();
-openMenu(1);
+openMenu(2);
 
 /* ------ */
 class Rocket {

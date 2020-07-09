@@ -8,9 +8,14 @@ options.forEach(option => optionImages.push(option.querySelector('img')));
 const cardBody = document.querySelector('.card__body');
 
 function showMenu(id) {
-    cardBody.innerHTML = '';
-    cardBody.innerHTML = menus[id];
     currentIndex = id;
+
+    menus.forEach((el, index) => {
+        el.style.display = 'none';
+        if (index === currentIndex) {
+            el.style.display = 'block';
+        }
+    })
 }
 
 function assignClicks() {
@@ -40,7 +45,7 @@ function setOpacity(id) {
 
 function start() {
     for (let i = 0; i < cardBody.children.length; i++) {
-        menus.push(cardBody.children[i].innerHTML);
+        menus.push(cardBody.children[i]);
     }
     assignClicks();
 }
@@ -52,3 +57,14 @@ function openMenu(id = 0) {
 
 start();
 openMenu(1);
+
+/* ------ */
+
+class Rocket {
+    teamNumber;
+    speed;
+    name;
+    icon;
+
+    launch() {}
+}

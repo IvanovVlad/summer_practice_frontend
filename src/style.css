@@ -212,8 +212,8 @@ h1 {
   display: -ms-grid;
   display: grid;
   -ms-grid-rows: 1fr 1fr;
-  -ms-grid-columns: 1fr 1fr;
-      grid-template: 1fr 1fr / 1fr 1fr;
+  -ms-grid-columns: 37% 1fr;
+      grid-template: 1fr 1fr / 37% 1fr;
   grid-gap: 40px 0;
 }
 

@@ -71,6 +71,7 @@ class Rocket {
 }
 
 const assembleButton = document.querySelector('#assemble-rocket-button');
+let choosenRocket;
 
 assembleButton.addEventListener('click', () => {
     const checkedRadio = document.querySelector('.spaceships-container input[type="radio"]:checked');
@@ -80,6 +81,8 @@ assembleButton.addEventListener('click', () => {
 });
 
 function showRocket(rocket) {
+    choosenRocket = rocket;
+
     const tile = document.querySelector('#rocket .info-tile__content');
     const tmp = tile.querySelectorAll('span.text');
 
@@ -105,8 +108,68 @@ function extractParameters(spaceships) {
 
         spaceshipsArray.push(rocket);
     });
-
+    choosenRocket = spaceshipsArray[0];
     return spaceshipsArray;
 }
 
 const rockets = extractParameters(spaceships);
+
+/* ------ */
+
+const role = Object.freeze({ Commander: 'Капитан', Medic: 'Врач', Engineer: 'Борт инженер', Spacetrooper: 'Космодесантник' });
+
+const team = new Map([
+    [role.Commander, []],
+    [role.Medic, []],
+    [role.Engineer, []],
+    [role.Spacetrooper, []],
+]);
+
+class TeamMember {
+    name;
+    icon;
+    role;
+
+    constructor(name, icon, role) {
+        this.name = name;
+        this.icon = icon;
+        this.role = role;
+    }
+
+    assign() {
+        team.get(this.role).push(this);
+    }
+}
+
+const members = [];
+
+const personContainer = document.querySelector('#team-compilation .person-container');
+
+personContainer.querySelectorAll('input').forEach(chk => {
+    members.push(new TeamMember(
+        chk.previousElementSibling.innerText,
+        chk.previousElementSibling.previousElementSibling.src,
+        findRole(chk.parentElement.parentElement.parentElement.previousElementSibling.innerText)));
+
+    // chk.addEventListener('click', (click) => console.log(click));
+});
+
+function findRole(name) {
+    switch (name) {
+        case 'Капитан':
+            return role.Commander;
+        case 'Борт инженер':
+            return role.Engineer;
+        case 'Врач':
+            return role.Medic;
+        case 'Космодесантник':
+            return role.Spacetrooper;
+        default:
+            return null;
+    }
+}
+
+const capitanHolder = document.querySelector('#capitan-holder');
+const engenieerHolder = document.querySelector('#engenieer-holder');
+const medicHolder = document.querySelector('#medic-holder');
+const spacetrooperHolder = document.querySelector('#spacetrooper-holder');

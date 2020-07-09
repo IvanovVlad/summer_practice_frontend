@@ -1,8 +1,10 @@
-$green: #73E24D;
-$brown: #E69F54;
-$pink: #FF7D84;
-$light-blue: #5A95F2;
-$dark-blue: #0A5499;
+$green: #73e24d;
+$brown: #e69f54;
+$pink: #ff7d84;
+$light-blue: #5a95f2;
+$dark-blue: #0a5499;
+
+@import './css/checkbox.scss';
 
 @font-face {
     font-family: "Roboto";
@@ -32,7 +34,7 @@ h1 {
 .card-wrapper {
     width: 1300px;
     height: 900px;
-    background: #F4F6F9;
+    background: #f4f6f9;
     border-radius: 50px;
     box-shadow: 5px 7px 40px rgba(0, 0, 0, 0.2);
 }
@@ -51,12 +53,12 @@ h1 {
 
     &__sidebar {
         border-radius: 50px 0 0 50px;
-        background: #FF5800;
+        background: #ff5800;
     }
 
     &__body {
         border-radius: 0 50px 50px 0;
-        background: #F4F6F9;
+        background: #f4f6f9;
     }
 
     &__info-tile {
@@ -90,15 +92,13 @@ h1 {
 
 .info-tile {
     width: 560px;
-    background: #FFFFFF;
-    border-radius: 10px;
-    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+    background: #ffffff;
 
     &__title {
         display: flex;
         align-items: center;
         height: 60px;
-        border-bottom: 1px solid #D8DCE3;
+        border-bottom: 1px solid #d8dce3;
 
         &--with-button {
             justify-content: space-between;
@@ -123,16 +123,61 @@ h1 {
         }
     }
 
-    &__image{
+    &__image {
         width: 90px;
         height: 90px;
+    }
+
+    &--size-smaller {
+        width: 500px;
+    }
+
+    &--size-smallest {
+        width: 353px;
+    }
+
+    &--basic-border {
+        border-radius: 10px;
+        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+    }
+
+    &--option-border {
+        border: 1px solid black;
+        border-radius: 10px;
+    }
+}
+
+.spaceships-container {
+    height: 376px;
+    overflow: auto;
+    margin: 45px;
+    display: grid;
+    grid-template: 1fr 1fr / 1fr 1fr;
+    grid-gap: 40px 0;
+}
+
+.spaceships-option {
+    padding: 27px;
+    display: grid;
+    grid-template-columns: 30% auto;
+
+    &__image {
+        width: 80px;
+        height: 80px;
+    }
+
+    &__bottom-bar {
+        text-align: center;
+        background: #d1e1fa;
+        border-radius: 0 0 10px 10px;
+        border-top: 1px solid black;
     }
 }
 
 .button {
     width: 150px;
     height: 30px;
-    background: #E4E4E4;
+    background: #e4e4e4;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     font-family: Roboto;
@@ -144,8 +189,12 @@ h1 {
     border: none;
 
     &:hover {
-        background: #8888;
         cursor: pointer;
+    }
+
+    &--green {
+        background: $green;
+        color: white;
     }
 }
 
@@ -209,10 +258,10 @@ h1 {
     padding-left: 10px;
     display: grid;
     grid-auto-flow: column;
-    grid-template: 1fr / 35% auto;
+    grid-template: 1fr / 100px auto;
 
     &--with-border {
-        border-bottom: 1px solid #D8DCE3;
+        border-bottom: 1px solid #d8dce3;
     }
 }
 
@@ -223,7 +272,7 @@ h1 {
         height: 438px;
         width: 438px;
         position: absolute;
-        background-image: url('/src/resources/space objects/023-astronomy\ 1.svg');
+        background-image: url("/src/resources/space objects/023-astronomy\ 1.svg");
         background-size: contain;
         background-repeat: no-repeat;
         border-top-right-radius: 50px;
@@ -235,7 +284,7 @@ h1 {
         height: 410px;
         width: 410px;
         position: absolute;
-        background-image: url('/src/resources/space objects/025-rocket\ 3.svg');
+        background-image: url("/src/resources/space objects/025-rocket\ 3.svg");
         background-size: contain;
         background-repeat: no-repeat;
         top: 390px;

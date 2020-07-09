@@ -1,3 +1,51 @@
+input[type="radio"] {
+  opacity: 0;
+}
+
+label {
+  position: relative;
+}
+
+label:hover {
+  cursor: pointer;
+}
+
+label::before {
+  content: "";
+  position: absolute;
+  width: 13px;
+  height: 13px;
+  background-color: #fff;
+  border-radius: 50px;
+  border: 1px solid black;
+  left: -20px;
+  top: 4px;
+}
+
+input[type="radio"]:checked + label::before {
+  content: "";
+  position: absolute;
+  width: 13px;
+  height: 13px;
+  background-color: #fff;
+  border-radius: 50px;
+  border: none;
+  left: -20px;
+  top: 4px;
+}
+
+input[type="radio"]:checked + label::after {
+  content: "";
+  position: absolute;
+  width: 11px;
+  height: 11px;
+  background-color: #73e24d;
+  border-radius: 50px;
+  border: none;
+  left: -19px;
+  top: 5px;
+}
+
 @font-face {
   font-family: "Roboto";
   src: url(/src/resources/fonts/Roboto-Regular.ttf);
@@ -30,7 +78,7 @@ h1 {
 .card-wrapper {
   width: 1300px;
   height: 900px;
-  background: #F4F6F9;
+  background: #f4f6f9;
   border-radius: 50px;
   -webkit-box-shadow: 5px 7px 40px rgba(0, 0, 0, 0.2);
           box-shadow: 5px 7px 40px rgba(0, 0, 0, 0.2);
@@ -55,12 +103,12 @@ h1 {
 
 .card__sidebar {
   border-radius: 50px 0 0 50px;
-  background: #FF5800;
+  background: #ff5800;
 }
 
 .card__body {
   border-radius: 0 50px 50px 0;
-  background: #F4F6F9;
+  background: #f4f6f9;
 }
 
 .card__info-tile {
@@ -92,10 +140,7 @@ h1 {
 
 .info-tile {
   width: 560px;
-  background: #FFFFFF;
-  border-radius: 10px;
-  -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
-          box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+  background: #ffffff;
 }
 
 .info-tile__title {
@@ -106,7 +151,7 @@ h1 {
       -ms-flex-align: center;
           align-items: center;
   height: 60px;
-  border-bottom: 1px solid #D8DCE3;
+  border-bottom: 1px solid #d8dce3;
 }
 
 .info-tile__title--with-button {
@@ -141,10 +186,61 @@ h1 {
   height: 90px;
 }
 
+.info-tile--size-smaller {
+  width: 500px;
+}
+
+.info-tile--size-smallest {
+  width: 353px;
+}
+
+.info-tile--basic-border {
+  border-radius: 10px;
+  -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+}
+
+.info-tile--option-border {
+  border: 1px solid black;
+  border-radius: 10px;
+}
+
+.spaceships-container {
+  height: 376px;
+  overflow: auto;
+  margin: 45px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 1fr 1fr;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template: 1fr 1fr / 1fr 1fr;
+  grid-gap: 40px 0;
+}
+
+.spaceships-option {
+  padding: 27px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 30% auto;
+      grid-template-columns: 30% auto;
+}
+
+.spaceships-option__image {
+  width: 80px;
+  height: 80px;
+}
+
+.spaceships-option__bottom-bar {
+  text-align: center;
+  background: #d1e1fa;
+  border-radius: 0 0 10px 10px;
+  border-top: 1px solid black;
+}
+
 .button {
   width: 150px;
   height: 30px;
-  background: #E4E4E4;
+  background: #e4e4e4;
   -webkit-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
           box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
@@ -158,8 +254,12 @@ h1 {
 }
 
 .button:hover {
-  background: #8888;
   cursor: pointer;
+}
+
+.button--green {
+  background: #73e24d;
+  color: white;
 }
 
 .text {
@@ -175,23 +275,23 @@ h1 {
 }
 
 .text--dark-blue {
-  color: #0A5499;
+  color: #0a5499;
 }
 
 .text--light-blue {
-  color: #5A95F2;
+  color: #5a95f2;
 }
 
 .text--pink {
-  color: #FF7D84;
+  color: #ff7d84;
 }
 
 .text--brown {
-  color: #E69F54;
+  color: #e69f54;
 }
 
 .text--green {
-  color: #73E24D;
+  color: #73e24d;
 }
 
 .list__item {
@@ -215,11 +315,11 @@ h1 {
 }
 
 .bulletpoint--pink {
-  background-color: #FF7D84;
+  background-color: #ff7d84;
 }
 
 .bulletpoint--green {
-  background-color: #73E24D;
+  background-color: #73e24d;
 }
 
 .line-text {
@@ -228,12 +328,12 @@ h1 {
   display: grid;
   grid-auto-flow: column;
   -ms-grid-rows: 1fr;
-  -ms-grid-columns: 35% auto;
-      grid-template: 1fr / 35% auto;
+  -ms-grid-columns: 100px auto;
+      grid-template: 1fr / 100px auto;
 }
 
 .line-text--with-border {
-  border-bottom: 1px solid #D8DCE3;
+  border-bottom: 1px solid #d8dce3;
 }
 
 .flow-elements {

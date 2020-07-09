@@ -378,7 +378,37 @@ h1 {
 }
 
 .person-container {
+  height: 430px;
+  overflow: auto;
   margin: 45px;
+  padding-bottom: 20px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  grid-gap: 30px 0;
+}
+
+.person-container__line-text {
+  margin-bottom: 20px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 5fr 30fr 2fr;
+      grid-template-columns: 5fr 30fr 2fr;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.person-container__icon {
+  width: 40px;
+}
+
+.person-container--padding {
+  padding-bottom: 20px;
 }
 
 .icon {

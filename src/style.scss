@@ -117,6 +117,7 @@ h1 {
         margin: 10px 27px;
         display: grid;
         grid-gap: 5px;
+
         &--with-picture {
             grid-auto-flow: column;
             grid-template-columns: 20% auto;
@@ -263,6 +264,7 @@ h1 {
     &--option-padding {
         grid-template: 1fr / 100px auto;
     }
+
     &--with-border {
         border-bottom: 1px solid #d8dce3;
     }
@@ -302,7 +304,31 @@ h1 {
 }
 
 .person-container {
+    height: 430px;
+    overflow: auto;
+    
     margin: 45px;
+    padding-bottom: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 30px 0;
+    
+
+    &__line-text {
+        margin-bottom: 20px;
+        display: grid;
+        grid-template-columns: 5fr 30fr 2fr;
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__icon {
+        width: 40px;
+    }
+
+    &--padding {
+        padding-bottom: 20px;
+    }
 }
 
 .icon {

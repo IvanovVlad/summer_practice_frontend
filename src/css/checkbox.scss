@@ -1,0 +1,47 @@
+input[type="radio"] {
+    opacity: 0;
+}
+
+label {
+    position: relative;
+}
+
+label:hover {
+    cursor: pointer;
+}
+
+label::before {
+    content: "";
+    position: absolute;
+    width: 13px;
+    height: 13px;
+    background-color: #fff;
+    border-radius: 50px;
+    border: 1px solid black;
+    left: -20px;
+    top: 4px;
+}
+
+input[type="radio"]:checked + label::before {
+    content: "";
+    position: absolute;
+    width: 13px;
+    height: 13px;
+    background-color: #fff;
+    border-radius: 50px;
+    border: none;
+    left: -20px;
+    top: 4px;
+}
+
+input[type="radio"]:checked + label::after {
+    content: "";
+    position: absolute;
+    width: 11px;
+    height: 11px;
+    background-color: $green;
+    border-radius: 50px;
+    border: none;
+    left: -19px;
+    top: 5px;
+}

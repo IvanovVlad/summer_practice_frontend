@@ -58,7 +58,7 @@ function openMenu(id = 0) {
 }
 
 start();
-openMenu(2);
+openMenu(3);
 
 /* ------ */
 class Rocket {
@@ -138,6 +138,7 @@ class TeamMember {
     }
 
     assign() {
+        console.log(this.role);
         team.get(this.role).push(this);
         TeamMember.count++;
     }
@@ -158,12 +159,12 @@ const members = [];
 
 const personContainer = document.querySelector('#team-compilation .person-container');
 let counter = 0;
-
 function findRole(name) {
+    name = name.replace(/[^A-Za-zА-Яа-я]/g, '');
     switch (name) {
         case 'Капитан':
             return role.Commander;
-        case 'Борт инженер':
+        case 'Бортинженер':
             return role.Engineer;
         case 'Врач':
             return role.Medic;
@@ -178,12 +179,13 @@ personContainer.querySelectorAll('input').forEach(chk => {
     members.push(new TeamMember(
         chk.previousElementSibling.innerText,
         chk.previousElementSibling.previousElementSibling.src,
-        findRole(chk.parentElement.parentElement.parentElement.previousElementSibling.innerText)));
+        findRole(chk.parentElement.parentElement.parentElement.previousElementSibling.textContent)));
 
     chk.id = 'teamchk-' + counter;
     counter++;
     chk.addEventListener('click', (click) => {
         if (click.target.checked) {
+            console.log(members[parseInt(click.target.id.replace('teamchk-', ''))]);
             members[parseInt(click.target.id.replace('teamchk-', ''))].assign();
             showTeamIcons(team);
         } else {

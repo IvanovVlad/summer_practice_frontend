@@ -241,4 +241,19 @@ const teamReadyButton = document.querySelector('#team-compilation button');
 
 function checkIsTeamReady(target, current) {
     (target > current) ? teamReadyButton.classList.remove('button--green') : teamReadyButton.classList.add('button--green');
-} 
+}
+
+/* ------- */
+
+async function getWeatherInfo(cityName) {
+    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=64481735fe99ef63f1d9792d2170d77b`)
+        .then(a => a.json())
+        .then(b => console.log(b));
+}
+
+class WeatherInfo {
+    constructor(location) {
+        this.location = location;
+    }
+}
+

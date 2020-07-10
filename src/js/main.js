@@ -129,6 +129,7 @@ class TeamMember {
     name;
     icon;
     role;
+    static count = 0;
 
     constructor(name, icon, role) {
         this.name = name;
@@ -138,21 +139,25 @@ class TeamMember {
 
     assign() {
         team.get(this.role).push(this);
+        TeamMember.count++;
+    }
+
+    disassign() {
+        team.set(this.role, team.get(this.role).filter((el) => !el.compare(this)));
+        TeamMember.count--;
+    }
+
+    compare(tm) {
+        return (this.name === tm.name &&
+            this.icon === tm.icon &&
+            this.role === tm.role);
     }
 }
 
 const members = [];
 
 const personContainer = document.querySelector('#team-compilation .person-container');
-
-personContainer.querySelectorAll('input').forEach(chk => {
-    members.push(new TeamMember(
-        chk.previousElementSibling.innerText,
-        chk.previousElementSibling.previousElementSibling.src,
-        findRole(chk.parentElement.parentElement.parentElement.previousElementSibling.innerText)));
-
-    // chk.addEventListener('click', (click) => console.log(click));
-});
+let counter = 0;
 
 function findRole(name) {
     switch (name) {
@@ -169,7 +174,69 @@ function findRole(name) {
     }
 }
 
+personContainer.querySelectorAll('input').forEach(chk => {
+    members.push(new TeamMember(
+        chk.previousElementSibling.innerText,
+        chk.previousElementSibling.previousElementSibling.src,
+        findRole(chk.parentElement.parentElement.parentElement.previousElementSibling.innerText)));
+
+    chk.id = 'teamchk-' + counter;
+    counter++;
+    chk.addEventListener('click', (click) => {
+        if (click.target.checked) {
+            members[parseInt(click.target.id.replace('teamchk-', ''))].assign();
+            showTeamIcons(team);
+        } else {
+            members[parseInt(click.target.id.replace('teamchk-', ''))].disassign();
+            showTeamIcons(team);
+        }
+    });
+});
+
 const capitanHolder = document.querySelector('#capitan-holder');
-const engenieerHolder = document.querySelector('#engenieer-holder');
+const engineerHolder = document.querySelector('#engenieer-holder');
 const medicHolder = document.querySelector('#medic-holder');
 const spacetrooperHolder = document.querySelector('#spacetrooper-holder');
+
+function showTeamIcons(team) {
+    function createImg(src) {
+        const img = document.createElement('img');
+        img.src = src;
+        img.classList += 'icon';
+        return img;
+    }
+
+    capitanHolder.innerHTML = '';
+    engineerHolder.innerHTML = '';
+    medicHolder.innerHTML = '';
+    spacetrooperHolder.innerHTML = '';
+
+    team.forEach(tmArray => {
+        tmArray.forEach(tm => {
+            switch (tm.role) {
+                case role.Commander:
+                    capitanHolder.appendChild(createImg(tm.icon));
+                    break;
+                case role.Engineer:
+                    engineerHolder.appendChild(createImg(tm.icon));
+                    break;
+                case role.Medic:
+                    medicHolder.appendChild(createImg(tm.icon));
+                    break;
+                case role.Spacetrooper:
+                    spacetrooperHolder.appendChild(createImg(tm.icon));
+                    break;
+                default:
+                    break;
+            };
+        });
+    });
+
+    checkIsTeamReady(choosenRocket.teamNumber, TeamMember.count);
+}
+
+const teamReadyButton = document.querySelector('#team-compilation button');
+
+function checkIsTeamReady(target, current) {
+    (target > current) ? teamReadyButton.classList.remove('button--green') : teamReadyButton.classList.add('button--green');
+} 

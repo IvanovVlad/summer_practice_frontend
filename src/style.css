@@ -415,4 +415,16 @@ h1 {
   width: 20px;
   padding-left: 10px;
 }
+
+.input {
+  position: relative;
+  top: -15%;
+  padding: 0 10px;
+  border-radius: 10px;
+  border: solid black 1px;
+}
+
+.input:focus {
+  outline: none;
+}
 /*# sourceMappingURL=style.css.map */

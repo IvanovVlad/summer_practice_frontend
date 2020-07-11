@@ -61,24 +61,43 @@ start();
 openMenu(0);
 
 /* ------ */
+let defaultPosition = 390;
+let startPosition = 390;
 class Rocket {
     teamNumber;
     speed;
     name;
     icon;
 
-    launch() { }
+    launch() {
+        const rocketImage = document.querySelector('#home .flow-elements__spaceship');
+
+        let timer = setInterval(() => {
+            startPosition -= 1;
+            rocketImage.style.top = startPosition + 'px';
+        }, 10);
+
+        setTimeout(() => clearInterval(timer), 10000);
+    }
 }
 
 const assembleButton = document.querySelector('#assemble-rocket-button');
 let choosenRocket;
 
-assembleButton.addEventListener('click', () => {
-    const checkedRadio = document.querySelector('.spaceships-container input[type="radio"]:checked');
-    if (checkedRadio) {
-        showRocket(rockets[parseInt(checkedRadio.id.replace('ss', ''))]);
+assembleButton.onclick = assembleRocket;
+
+function assembleRocket() {
+    if (choosenRocket) {
+        readyList[0].firstElementChild.classList.replace('bulletpoint--pink', 'bulletpoint--green');
+        isLaunchReady();
+        const rocketImage = document.querySelector("#home .flow-elements__spaceship");
+        rocketImage.style.backgroundImage = `url('${choosenRocket.icon}')`;
+        rocketImage.style.transform = 'rotate(-45deg)';
+        rocketImage.style.backgroundSize = '310px';
+        rocketImage.style.top = defaultPosition + 'px';
+        startPosition = defaultPosition;
     }
-});
+}
 
 function showRocket(rocket) {
     choosenRocket = rocket;
@@ -107,6 +126,12 @@ function extractParameters(spaceships) {
         rocket.icon = ss.querySelector('.spaceships-option__image').src;
 
         spaceshipsArray.push(rocket);
+
+        ss.lastElementChild.firstElementChild.onclick = () => {
+            assembleButton.classList.add('button--green');
+            const checkedRadio = document.querySelector('.spaceships-container input[type="radio"]:checked');
+            showRocket(rockets[parseInt(checkedRadio.id.replace('ss', ''))]);
+        };
     });
     choosenRocket = spaceshipsArray[0];
     return spaceshipsArray;
@@ -246,6 +271,7 @@ function checkIsTeamReady(target, current) {
         teamReadyButton.classList.remove('button--green')
 
         readyList[1].firstElementChild.classList.replace('bulletpoint--green', 'bulletpoint--pink');
+        isLaunchReady();
     } else {
         teamReadyButton.classList.add('button--green');
 
@@ -255,6 +281,7 @@ function checkIsTeamReady(target, current) {
         mainTeamTile.children[3].lastElementChild.innerText = team.get(role.Spacetrooper).join('\n');
 
         readyList[1].firstElementChild.classList.replace('bulletpoint--pink', 'bulletpoint--green');
+        isLaunchReady();
     }
 }
 
@@ -316,6 +343,7 @@ async function renderWeatherInfo(cityName) {
 
         readyList[2].firstElementChild.classList.replace('bulletpoint--pink', 'bulletpoint--green');
         checkWeatherButton.classList.add('button--green');
+        isLaunchReady();
     }
 }
 
@@ -343,9 +371,25 @@ const weatherCheckTile = document.querySelector("#weather .info-tile__content");
 
 const readyList = document.querySelector('#home .info-tile__list').children;
 
-const tmpTiles = document.querySelectorAll("#home .info-tile__content");
+const tmpTiles = document.querySelectorAll('#home .info-tile__content');
 
 const mainWeatherTile = tmpTiles[0];
 
 const mainTeamTile = tmpTiles[1];
 
+const launchButton = document.querySelector('#home .info-tile__title--with-button button');
+launchButton.addEventListener('click', () => {
+    if (isLaunchReady()) {
+        choosenRocket.launch();
+    }
+});
+
+function isLaunchReady() {
+    const bool = readyList[0].firstElementChild.classList.contains('bulletpoint--green') &&
+        readyList[1].firstElementChild.classList.contains('bulletpoint--green') &&
+        readyList[2].firstElementChild.classList.contains('bulletpoint--green')
+
+    bool ? launchButton.classList.add('button--green') : launchButton.classList.remove('button--green');
+
+    return bool;
+}

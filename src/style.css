@@ -364,7 +364,7 @@ h1 {
   width: 410px;
   position: absolute;
   background-image: url("/src/resources/space objects/025-rocket 3.svg");
-  background-size: contain;
+  background-size: 410px;
   background-repeat: no-repeat;
   top: 390px;
   left: 700px;

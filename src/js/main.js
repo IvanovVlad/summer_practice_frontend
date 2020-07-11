@@ -246,14 +246,65 @@ function checkIsTeamReady(target, current) {
 /* ------- */
 
 async function getWeatherInfo(cityName) {
-    fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=64481735fe99ef63f1d9792d2170d77b`)
-        .then(a => a.json())
-        .then(b => console.log(b));
+    return fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&units=metric&appid=64481735fe99ef63f1d9792d2170d77b`)
+        .then(response => response.json())
+        .catch(error => console.log('error', error));
 }
 
 class WeatherInfo {
-    constructor(location) {
+    static current;
+
+    constructor(location, temperature, humidity, wind, windDirecton) {
         this.location = location;
+        this.temperature = temperature;
+        this.humidity = humidity;
+        this.wind = wind;
+        this.windDirecton = windDirecton;
+    }
+
+    static degreesToSide(deg) {
+        deg = parseInt(deg);
+
+        if (deg > 350 || deg <= 10)
+            return 'С'
+        if (deg > 10 && deg <= 80)
+            return 'СВ'
+        if (deg > 80 && deg <= 100)
+            return 'В'
+        if (deg > 100 && deg <= 170)
+            return 'ЮВ'
+        if (deg > 170 && deg <= 190)
+            return 'Ю'
+        if (deg > 190 && deg <= 260)
+            return 'ЮЗ'
+        if (deg > 260 && deg <= 280)
+            return 'З'
+        if (deg > 280 && deg <= 350)
+            return 'СЗ'
+        return '';
     }
 }
 
+async function renderWeatherInfo(cityName) {
+    if (cityName !== '') {
+        const weatherJson = await getWeatherInfo(cityName);
+
+        WeatherInfo.current = new WeatherInfo(
+            weatherJson.name,
+            weatherJson.main.temp,
+            weatherJson.main.humidity,
+            weatherJson.wind.speed,
+            WeatherInfo.degreesToSide(weatherJson.wind.deg));
+
+        weatherCheckTile.children[1].lastElementChild.innerText = WeatherInfo.current.temperature + ' C';
+        weatherCheckTile.children[2].lastElementChild.innerText = WeatherInfo.current.humidity + '%';
+        weatherCheckTile.children[3].lastElementChild.innerText = `${WeatherInfo.current.wind} м\\с, ${WeatherInfo.current.windDirecton}`;
+    }
+}
+
+const locationInput = document.querySelector('#location-input');
+
+const checkWeatherButton = document.querySelector("#weather button");
+checkWeatherButton.addEventListener('click', () => renderWeatherInfo(locationInput.value));
+
+const weatherCheckTile = document.querySelector("#weather .info-tile__content");

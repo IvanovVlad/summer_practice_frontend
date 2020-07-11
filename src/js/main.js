@@ -26,14 +26,12 @@ function assignClicks() {
 }
 
 function setOpacity(id) {
-    const opacity = { active: 1, inactive: 0.1 };
-
     optionImages.forEach(
         (img, index) => {
             if (id !== index) {
-                img.style.opacity = opacity.inactive;
+                img.classList.add('transparent');
             } else {
-                img.style.opacity = opacity.active;
+                img.classList.remove('transparent');
             }
         });
 }

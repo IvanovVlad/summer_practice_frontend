@@ -251,4 +251,8 @@ h1 {
   top: 390px;
   left: 700px;
 }
+
+.transparent {
+  opacity: 0.1;
+}
 /*# sourceMappingURL=style.css.map */

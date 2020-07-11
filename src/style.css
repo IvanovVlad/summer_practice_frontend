@@ -1,6 +1,6 @@
 @font-face {
   font-family: "Roboto";
-  src: url(/src/resources/fonts/Roboto-Regular.ttf);
+  src: url('./resources/fonts/Roboto-Regular.ttf');
 }
 
 body {
@@ -10,7 +10,7 @@ body {
 .wrapper {
   height: 100vh;
   width: 100vw;
-  background-image: url(/src/resources/background.svg);
+  background-image: url('./resources/background.svg');
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;

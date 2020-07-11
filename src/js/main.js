@@ -58,7 +58,7 @@ function openMenu(id = 0) {
 }
 
 start();
-openMenu(3);
+openMenu(0);
 
 /* ------ */
 class Rocket {
@@ -138,7 +138,6 @@ class TeamMember {
     }
 
     assign() {
-        console.log(this.role);
         team.get(this.role).push(this);
         TeamMember.count++;
     }
@@ -185,7 +184,6 @@ personContainer.querySelectorAll('input').forEach(chk => {
     counter++;
     chk.addEventListener('click', (click) => {
         if (click.target.checked) {
-            console.log(members[parseInt(click.target.id.replace('teamchk-', ''))]);
             members[parseInt(click.target.id.replace('teamchk-', ''))].assign();
             showTeamIcons(team);
         } else {
@@ -296,15 +294,41 @@ async function renderWeatherInfo(cityName) {
             weatherJson.wind.speed,
             WeatherInfo.degreesToSide(weatherJson.wind.deg));
 
-        weatherCheckTile.children[1].lastElementChild.innerText = WeatherInfo.current.temperature + ' C';
-        weatherCheckTile.children[2].lastElementChild.innerText = WeatherInfo.current.humidity + '%';
-        weatherCheckTile.children[3].lastElementChild.innerText = `${WeatherInfo.current.wind} м\\с, ${WeatherInfo.current.windDirecton}`;
+        renderWeatherTile(weatherCheckTile.children);
+        renderWeatherTile(mainWeatherTile.children);
+
+        readyList[2].firstElementChild.classList.replace('bulletpoint--pink', 'bulletpoint--green');
+        checkWeatherButton.classList.add('button--green');
     }
 }
 
+function renderWeatherTile(wtChildren) {
+    if (!wtChildren[0].lastElementChild.type) {
+        wtChildren[0].lastElementChild.innerText = WeatherInfo.current.location;
+    }
+    wtChildren[1].lastElementChild.innerText = WeatherInfo.current.temperature + ' C';
+    wtChildren[2].lastElementChild.innerText = WeatherInfo.current.humidity + '%';
+    wtChildren[3].lastElementChild.innerText = `${WeatherInfo.current.wind} м\\с, ${WeatherInfo.current.windDirecton}`;
+}
+
 const locationInput = document.querySelector('#location-input');
+
+locationInput.oninput = () => {
+    (locationInput.value === '') ? checkWeatherButton.classList.remove('button--green') : checkWeatherButton.classList.add('button--green');
+};
 
 const checkWeatherButton = document.querySelector("#weather button");
 checkWeatherButton.addEventListener('click', () => renderWeatherInfo(locationInput.value));
 
 const weatherCheckTile = document.querySelector("#weather .info-tile__content");
+
+/* -------- */
+
+const readyList = document.querySelector('#home .info-tile__list').children;
+
+const tmpTiles = document.querySelectorAll("#home .info-tile__content");
+
+const mainWeatherTile = tmpTiles[0];
+
+const mainTeamTile = tmpTiles[1];
+

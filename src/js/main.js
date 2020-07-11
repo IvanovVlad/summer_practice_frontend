@@ -152,6 +152,10 @@ class TeamMember {
             this.icon === tm.icon &&
             this.role === tm.role);
     }
+
+    toString() {
+        return this.name;
+    }
 }
 
 const members = [];
@@ -238,7 +242,20 @@ function showTeamIcons(team) {
 const teamReadyButton = document.querySelector('#team-compilation button');
 
 function checkIsTeamReady(target, current) {
-    (target > current) ? teamReadyButton.classList.remove('button--green') : teamReadyButton.classList.add('button--green');
+    if (target > current) {
+        teamReadyButton.classList.remove('button--green')
+
+        readyList[1].firstElementChild.classList.replace('bulletpoint--green', 'bulletpoint--pink');
+    } else {
+        teamReadyButton.classList.add('button--green');
+
+        mainTeamTile.children[0].lastElementChild.innerText = team.get(role.Commander).join('\n');
+        mainTeamTile.children[1].lastElementChild.innerText = team.get(role.Engineer).join('\n');
+        mainTeamTile.children[2].lastElementChild.innerText = team.get(role.Medic).join('\n');
+        mainTeamTile.children[3].lastElementChild.innerText = team.get(role.Spacetrooper).join('\n');
+
+        readyList[1].firstElementChild.classList.replace('bulletpoint--pink', 'bulletpoint--green');
+    }
 }
 
 /* ------- */

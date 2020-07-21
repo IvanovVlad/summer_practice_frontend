@@ -111,6 +111,15 @@ function showRocket(rocket) {
     tmp[5].innerText = rocket.teamNumber;
 }
 
+function showRocketInTeamMenu(rocket) {
+    const tile = document.querySelector('#team-compilation div.team-wrapper div:nth-child(2) div.info-tile__body')
+    tile.querySelector('img').src = rocket.icon;
+    const info = tile.querySelectorAll('.line-text');
+    info[0].lastElementChild.innerText = rocket.name;
+    info[1].lastElementChild.innerText = rocket.speed;
+    info[2].lastElementChild.innerText = rocket.teamNumber;
+}
+
 const spaceships = document.querySelectorAll('.spaceships-container .info-tile');
 
 function extractParameters(spaceships) {
@@ -121,7 +130,7 @@ function extractParameters(spaceships) {
 
         const rocket = new Rocket();
         rocket.name = tmp[1].innerText;
-        rocket.speed = tmp[3].innerText;
+        rocket.speed = tmp[3].innerText.replace(/[^0-6A-Za-zА-Яа-я/]/g, '').replace(/(км)/g, ' $1');
         rocket.teamNumber = tmp[5].innerText;
         rocket.icon = ss.querySelector('.spaceships-option__image').src;
 
@@ -131,6 +140,7 @@ function extractParameters(spaceships) {
             assembleButton.classList.add('button--green');
             const checkedRadio = document.querySelector('.spaceships-container input[type="radio"]:checked');
             showRocket(rockets[parseInt(checkedRadio.id.replace('ss', ''))]);
+            showRocketInTeamMenu(choosenRocket);
         };
     });
     choosenRocket = spaceshipsArray[0];

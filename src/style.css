@@ -51,6 +51,14 @@ input[type="radio"]:checked + .radio::after {
   src: url("./resources/fonts/Roboto-Regular.ttf");
 }
 
+ul {
+  padding: 0;
+}
+
+li {
+  display: block;
+}
+
 body {
   margin: 0;
 }

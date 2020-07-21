@@ -13,31 +13,32 @@
     <div class="wrapper">
         <div class="card-wrapper">
             <div class="card">
-                <div class="card__sidebar card__card-sidebar">
-                    <div class="card__option-holder">
-                        <div class="option option--main" id="option-main">
-                            <img src="resources/sidebar icons/007-earth 1.svg" class="option__image"></img>
-                        </div>
-                        <div class="option" id="option-rocket">
-                            <img src="resources/sidebar icons/025-rocket 1.svg" class="option__image"></object>
-                        </div>
-                        <div class="option" id="option-team">
-                            <img src="resources/sidebar icons/003-aqualung 1.svg" class="option__image"></object>
-                        </div>
-                        <div class="option" id="option-temperature">
-                            <img src="resources/sidebar icons/034-thermometer 1.svg" class="option__image"></object>
-                        </div>
-                    </div>
-                </div>
-                <div class="card__body">
-                    <div id="home">
+                <nav class="card__sidebar card__card-sidebar">
+                    <ul class="card__option-holder">
+                        <li class="option option--main" id="option-main">
+                            <img src="resources/sidebar icons/007-earth 1.svg" class="option__image" alt="" />
+                        </li>
+                        <li class="option" id="option-rocket">
+                            <img src="resources/sidebar icons/025-rocket 1.svg" class="option__image" alt="" />
+                        </li>
+                        <li class="option" id="option-team">
+                            <img src="resources/sidebar icons/003-aqualung 1.svg" class="option__image" alt="" />
+                        </li>
+                        <li class="option" id="option-temperature">
+                            <img src="resources/sidebar icons/034-thermometer 1.svg" class="option__image" alt="" />
+                        </li>
+                    </ul>
+                </nav>
+                <main class="card__body">
+                    <section id="home">
+                        <h2 style="display: none;">Главная</h2>
                         <div class="flow-elements">
                             <div class="flow-elements__planets"></div>
                             <div class="flow-elements__spaceship"></div>
                         </div>
-                        <div class="info-tile card__info-tile info-tile--basic-border">
+                        <article class="info-tile card__info-tile info-tile--basic-border">
                             <div class="info-tile__title info-tile__title--with-button">
-                                <span class="text text--bold info-tile__title-text">Статус</span><button
+                                <h3 class="text text--bold info-tile__title-text">Статус</h3><button
                                     class="button info-tile__title-text">Поехали!</button>
                             </div>
                             <div class="info-tile__body">
@@ -56,10 +57,10 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="info-tile card__info-tile info-tile--basic-border">
+                        </article>
+                        <article class="info-tile card__info-tile info-tile--basic-border">
                             <div class="info-tile__title">
-                                <span class="text text--bold info-tile__title-text">Погодные условия</span>
+                                <h3 class="text text--bold info-tile__title-text">Погодные условия</h3>
                             </div>
                             <div class="info-tile__body">
                                 <div class="info-tile__content">
@@ -78,10 +79,10 @@
                                             class="text"></span></div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="info-tile card__info-tile info-tile--basic-border">
+                        </article>
+                        <article class="info-tile card__info-tile info-tile--basic-border">
                             <div class="info-tile__title">
-                                <span class="text text--bold info-tile__title-text">Экипаж</span>
+                                <h3 class="text text--bold info-tile__title-text">Экипаж</h3>
                             </div>
                             <div class="info-tile__body">
                                 <div class="info-tile__content">
@@ -101,10 +102,10 @@
                                             class="text"></span></div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div id="rocket">
-                        <div class="card__title">Выбор корабля</div>
+                        </article>
+                    </section>
+                    <section id="rocket">
+                        <h2 class="card__title">Выбор корабля</h2>
                         <div class="info-tile card__info-tile info-tile--size-smaller info-tile--basic-border">
                             <div class="info-tile__title info-tile__title--with-button">
                                 <span class="text text--bold info-tile__title-text">Экипаж</span><button
@@ -115,7 +116,7 @@
                                 <div class="info-tile__content info-tile__content--with-picture">
                                     <div>
                                         <img class="info-tile__image"
-                                            src="/src/resources/space objects/025-rocket 2.svg" alt="">
+                                            src="/src/resources/space objects/025-rocket 2.svg" alt="" />
                                     </div>
                                     <div>
                                         <div class="line-text"><span
@@ -139,7 +140,7 @@
                                 <div class="spaceships-option">
                                     <div>
                                         <img class="spaceships-option__image"
-                                            src="/src/resources/space objects/028-alien 1.svg" alt="">
+                                            src="/src/resources/space objects/028-alien 1.svg" alt="" />
                                     </div>
                                     <div>
                                         <div class="line-text line-text--with-border line-text--option-padding"><span
@@ -166,7 +167,7 @@
                                 <div class="spaceships-option">
                                     <div>
                                         <img class="spaceships-option__image"
-                                            src="/src/resources/space objects/018-rocket 1.svg" alt="">
+                                            src="/src/resources/space objects/018-rocket 1.svg" alt="" />
                                     </div>
                                     <div>
                                         <div class="line-text line-text--with-border line-text--option-padding"><span
@@ -193,7 +194,7 @@
                                 <div class="spaceships-option">
                                     <div>
                                         <img class="spaceships-option__image"
-                                            src="/src/resources/space objects/025-rocket 2.svg" alt="">
+                                            src="/src/resources/space objects/025-rocket 2.svg" alt="" />
                                     </div>
                                     <div>
                                         <div class="line-text line-text--with-border line-text--option-padding"><span
@@ -217,9 +218,9 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div id="team-compilation">
-                        <div class="card__title">Сбор команды</div>
+                    </section>
+                    <section id="team-compilation">
+                        <h2 class="card__title">Сбор команды</h2>
                         <div class="team-wrapper">
                             <div class="person-selected">
                                 <div class="info-tile info-tile--size-smaller info-tile--basic-border">
@@ -255,7 +256,7 @@
                                     <div class="info-tile__body">
                                         <div class="info-tile__content info-tile__content--with-picture">
                                             <div>
-                                                <img class="info-tile__image" src="" alt="">
+                                                <img class="info-tile__image" src="" alt="" />
                                             </div>
                                             <div>
                                                 <div class="line-text"><span
@@ -285,7 +286,7 @@
                                         <div class="person-container__list info-tile__list">
                                             <div class="person-container__line-text line-text--with-border">
                                                 <img class="person-container__icon"
-                                                    src="/src/resources/avatar/015-man-11 1.png" alt="">
+                                                    src="/src/resources/avatar/015-man-11 1.png" alt="" />
                                                 <span class="text">Константин Константинопольский</span>
                                                 <span>
                                                     <input class="checkbox" type="checkbox" id="tm0">
@@ -294,7 +295,7 @@
                                             </div>
                                             <div class="person-container__line-text line-text--with-border">
                                                 <img class="person-container__icon"
-                                                    src="/src/resources/avatar/003-woman-13 1.png" alt="">
+                                                    src="/src/resources/avatar/003-woman-13 1.png" alt="" />
                                                 <span class="text">Алиса</span>
                                                 <span>
                                                     <input class="checkbox" type="checkbox" id="tm1">
@@ -314,7 +315,7 @@
                                         <div class="person-container__list info-tile__list">
                                             <div class="person-container__line-text line-text--with-border">
                                                 <img class="person-container__icon"
-                                                    src="/src/resources/avatar/004-woman-12 1.png" alt="">
+                                                    src="/src/resources/avatar/004-woman-12 1.png" alt="" />
                                                 <span class="text">Маша</span>
                                                 <span>
                                                     <input class="checkbox" type="checkbox" id="tm2">
@@ -323,7 +324,7 @@
                                             </div>
                                             <div class="person-container__line-text line-text--with-border">
                                                 <img class="person-container__icon"
-                                                    src="/src/resources/avatar/007-woman-9 1.png" alt="">
+                                                    src="/src/resources/avatar/007-woman-9 1.png" alt="" />
                                                 <span class="text">Даша</span>
                                                 <span>
                                                     <input class="checkbox" type="checkbox" id="tm3">
@@ -342,7 +343,7 @@
                                         <div class="person-container__list info-tile__list">
                                             <div class="person-container__line-text line-text--with-border">
                                                 <img class="person-container__icon"
-                                                    src="/src/resources/avatar/017-man-9 1.png" alt="">
+                                                    src="/src/resources/avatar/017-man-9 1.png" alt="" />
                                                 <span class="text">Алексей</span>
                                                 <span>
                                                     <input class="checkbox" type="checkbox" id="tm4">
@@ -351,7 +352,7 @@
                                             </div>
                                             <div class="person-container__line-text line-text--with-border">
                                                 <img class="person-container__icon"
-                                                    src="/src/resources/avatar/018-man-8 1.png" alt="">
+                                                    src="/src/resources/avatar/018-man-8 1.png" alt="" />
                                                 <span class="text">Николай</span>
                                                 <span>
                                                     <input class="checkbox" type="checkbox" id="tm5">
@@ -380,7 +381,7 @@
                                             </div>
                                             <div class="person-container__line-text line-text--with-border">
                                                 <img class="person-container__icon"
-                                                    src="/src/resources/avatar/020-man-6 1.png" alt="">
+                                                    src="/src/resources/avatar/020-man-6 1.png" alt="" />
                                                 <span class="text">Родион</span>
                                                 <span>
                                                     <input class="checkbox" type="checkbox" id="tm7">
@@ -392,9 +393,9 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div id="weather">
-                        <div class="card__title">Проверка погодных условий</div>
+                    </section>
+                    <section id="weather">
+                        <h2 class="card__title">Проверка погодных условий</h2>
                         <div class="info-tile card__info-tile info-tile--basic-border">
                             <div class="info-tile__title info-tile__title--with-button">
                                 <span class="text text--bold info-tile__title-text">Погодные условия</span><button
@@ -420,8 +421,8 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                </div>
+                    </section>
+                </main>
             </div>
         </div>
     </div>

@@ -11,6 +11,14 @@ $dark-blue: #0a5499;
     src: url("./resources/fonts/Roboto-Regular.ttf");
 }
 
+ul {
+    padding: 0;
+}
+
+li {
+    display: block;
+}
+
 body {
     margin: 0;
 }
@@ -377,7 +385,7 @@ input[type="checkbox"].checkbox:checked + label.label {
     background-position: 0 -16px;
 }
 label.label {
-    background-image: url('./resources/csscheckbox.png');
+    background-image: url("./resources/csscheckbox.png");
     -webkit-touch-callout: none;
     -webkit-user-select: none;
     -khtml-user-select: none;

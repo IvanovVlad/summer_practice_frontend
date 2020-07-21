@@ -196,7 +196,6 @@ class TeamMember {
 const members = [];
 
 const personContainer = document.querySelector('#team-compilation .person-container');
-let counter = 0;
 function findRole(name) {
     name = name.replace(/[^A-Za-zА-Яа-я]/g, '');
     switch (name) {
@@ -215,18 +214,16 @@ function findRole(name) {
 
 personContainer.querySelectorAll('input').forEach(chk => {
     members.push(new TeamMember(
-        chk.previousElementSibling.innerText,
-        chk.previousElementSibling.previousElementSibling.src,
-        findRole(chk.parentElement.parentElement.parentElement.previousElementSibling.textContent)));
+        chk.parentElement.previousElementSibling.innerText,
+        chk.parentElement.previousElementSibling.previousElementSibling.src,
+        findRole(chk.parentElement.parentElement.parentElement.parentElement.previousElementSibling.textContent)));
 
-    chk.id = 'teamchk-' + counter;
-    counter++;
     chk.addEventListener('click', (click) => {
         if (click.target.checked) {
-            members[parseInt(click.target.id.replace('teamchk-', ''))].assign();
+            members[parseInt(click.target.id.replace('tm', ''))].assign();
             showTeamIcons(team);
         } else {
-            members[parseInt(click.target.id.replace('teamchk-', ''))].disassign();
+            members[parseInt(click.target.id.replace('tm', ''))].disassign();
             showTeamIcons(team);
         }
     });

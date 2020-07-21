@@ -1,16 +1,16 @@
 input[type="radio"] {
-    opacity: 0;
+    display: none;
 }
 
-label {
+.radio {
     position: relative;
 }
 
-label:hover {
+.radio:hover {
     cursor: pointer;
 }
 
-label::before {
+.radio::before {
     content: "";
     position: absolute;
     width: 13px;
@@ -22,7 +22,7 @@ label::before {
     top: 4px;
 }
 
-input[type="radio"]:checked + label::before {
+input[type="radio"]:checked + .radio::before {
     content: "";
     position: absolute;
     width: 13px;
@@ -34,7 +34,7 @@ input[type="radio"]:checked + label::before {
     top: 4px;
 }
 
-input[type="radio"]:checked + label::after {
+input[type="radio"]:checked + .radio::after {
     content: "";
     position: absolute;
     width: 11px;

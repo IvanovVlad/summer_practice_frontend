@@ -144,6 +144,7 @@ function extractParameters(spaceships) {
         };
     });
     choosenRocket = spaceshipsArray[0];
+    showRocketInTeamMenu(choosenRocket);
     return spaceshipsArray;
 }
 

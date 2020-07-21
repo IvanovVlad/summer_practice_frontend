@@ -112,7 +112,7 @@ function showRocket(rocket) {
 }
 
 function showRocketInTeamMenu(rocket) {
-    const tile = document.querySelector('#team-compilation div.team-wrapper div:nth-child(2) div.info-tile__body')
+    const tile = document.querySelector('#team-compilation .team-wrapper :nth-child(2) .info-tile__body');
     tile.querySelector('img').src = rocket.icon;
     const info = tile.querySelectorAll('.line-text');
     info[0].lastElementChild.innerText = rocket.name;
